@@ -4,12 +4,14 @@ import DashboardScreen from "../modules/dashboard/DashboardScreen";
 import AddDeviceScreen from "../modules/dashboard/AddDeviceScreen";
 import EditDeviceScreen from "../modules/dashboard/EditDeviceScreen";
 import GroupsScreen from "../modules/dashboard/GroupsScreen";
+import DeviceDiscovery from "../modules/dashboard/DeviceDiscovery";
 
 export type DashboardStackParamList = {
   DashboardMain: undefined;
   AddDevice: undefined;
   EditDevice: { deviceId: string };
   Groups: undefined; // 👈 NUEVA PANTALLA
+  DeviceDiscovery: undefined;
 };
 
 const Stack = createNativeStackNavigator<DashboardStackParamList>();
@@ -37,6 +39,12 @@ export default function DashboardNavigator() {
         component={GroupsScreen}
         options={{ title: "Grupos" }}
       />
+      <Stack.Screen
+        name="DeviceDiscovery"
+        component={DeviceDiscovery}
+        options={{ title: "Buscar dispositivos IoT" }}
+      />
+
     </Stack.Navigator>
   );
 }
